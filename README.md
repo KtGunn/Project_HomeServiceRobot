@@ -46,11 +46,11 @@ The project uses shell scripts to launch ROS nodes. The script runs each instanc
 
 The first launch brings up Gazebo showing the environment and turtlebot. The second launch runs the SLAM mapping node which has no direct gui interface only report to the console. The third launch brings up rviz in which we observe the progress of the mapping operation as the tug moves and the mapping node builds up the map. Finally the fourth node bring up the keyboard tele operation where through single key commands the robot is moved forward backward and rotated clock- and counter-clockwise.
 
-![turtle](</images/turtleslam.png>)
+![turtleslam](</images/turtleslam.png>)
  
 The figure above shows the start of mapping using the turtle bot. The figure show the limited range the 3d sensor. The result was that mapping with this sensor failed. After painstakingly slow and drawn-out mapping operation this was the result (see below).
 
-![turtle](</images/turtlemap.pgm>)
+![tmap](</images/turtlemap.png>)
 
 
 
