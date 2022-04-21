@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Created April 18 2022
-### K. Gunnarsson
+### K.G.
 
 ### Brings up all packages to implement the 
 #     Home Service Robot Project

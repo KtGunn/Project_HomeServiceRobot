@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Created March 26 2033
-### K. Gunnarsson
+### K.G.
 
 echo Launching Gazebo
 xterm  -e  " gazebo " &
