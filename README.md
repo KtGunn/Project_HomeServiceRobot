@@ -50,7 +50,7 @@ The first launch brings up Gazebo showing the environment and turtlebot. The sec
  
 The figure above shows the start of mapping using the turtle bot. The figure show the limited range the 3d sensor. The result was that mapping with this sensor failed. After painstakingly slow and drawn-out mapping operation this was the result (see below).
 
-![turtle](</images/turtlemap.png>)
+![turtle](</images/turtlemap.pgm>)
 
 
 
