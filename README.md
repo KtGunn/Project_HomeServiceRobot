@@ -39,7 +39,21 @@ The images above show the environment that was created for the project. It is si
 
 This project uses shell scripts to launch ROS nodes. The script runs each instance of roslaunch or rosrun in its own terminal. Below we have the script launching nodes to map the environment:
 
-`echo Launching turtlebot_gazebo turtlebot_world.launch`
+`#!/bin/sh`
+
 `xterm  -e  "roslaunch turtlebot_gazebo turtlebot_world.launch" &`
+
+`sleep 5`
+
+`xterm  -e  "roslaunch turtlebot_gazebo gmapping_demo.launch" &`
+
+`sleep 5`
+
+`xterm  -e  "roslaunch turtlebot_rviz_launchers view_navigation.launch" &`
+
+`sleep 5`
+
+`xterm  -e  "roslaunch turtlebot_teleop keyboard_teleop.launch" &`
+
 `sleep 5`
 
