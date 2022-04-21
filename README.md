@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the final project of Udacity's Robotics Software Nanodegree program (RSND). The project's objective is to create a robotic operations simulation. The operation will command a robot to pickup and carry and object from one location to another. The object will be simulated through visible markers placed in the map at the pick up and drop off locations.
+This is the final project of Udacity's Robotics Software Nanodegree program (RSND). The project's objective is to create a robotic operations simulation. The operation will command a robot to pickup an carry and object from one location to another. The object will be simulated through visible markers placed in the map at the pick up and drop off locations.
 
 ### Tasks
 
@@ -16,12 +16,22 @@ A sequence of steps building up to the final goal were defined:
 ### Packages
 
 Several packages are used for the project:
+
 - slam_gmapping
 - amcl
 - turtlebot
 - turtlebot_simulator
 - turtlebot_interactions
 
+The turtlebot robot was prescribed for this project but, as explained later, a robot created in prior projects was used also.
+
 ### Host System
 
-The turtlebot robot was prescribed for this project but, as explained later, a robot created in prior projects was used also. The project was delveloped under Ubuntu 16.04.7 using ROS distribution Kinetic.
+The project was delveloped under Ubuntu 16.04.7 using ROS distribution Kinetic.
+
+## The Environment
+
+![world_rviz](</images/environment.png>) ![world_rviz](</images/turtlebot.png>)
+
+The images above show the environment that was created for the project. It is simple and uncluttered but it provides a good test of navigation and obstacle detection for our robot. We see the turtlebot robot in that environment also. This configuration of the turtlebot has the asus xtion pro 3d sensor mounted.
+
