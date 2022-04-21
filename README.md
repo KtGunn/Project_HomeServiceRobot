@@ -52,5 +52,8 @@ The figure above shows the start of mapping using the turtle bot. The figure sho
 
 ![tmap](</images/turtlemap.png>)
 
+A robot created in a prior project was used to perform the mapping (see *.../src/srcipt/myrobot_slam.sh*). The gif below shows a snippet of the mapping operation, which successfully created a map.
+
+![myrmap](</images/myrobotmapping.gif>)
 
 
