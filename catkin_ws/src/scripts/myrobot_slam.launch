@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Created April 14 2022
-### K. Gunnarsson
+### K.G.
 
 ### Brings up Gazebo with my HSR environment and also the gmapping
 #   package. Adidtionally the teleop node (to drive the robot)

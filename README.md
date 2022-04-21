@@ -56,4 +56,6 @@ A robot created in a prior project was used to perform the mapping (see *.../src
 
 ![myrmap](</images/myrobotmapping.gif>)
 
+Although much better success was had with my own robot, thanks to the hokuyo lidar mounted on it, slam mapping is still a touchy operation. One must move slowly and seek to attain closures to build up a reliable and correct map. If a robot starts jumping around much during mapping, closure may not be attained and one must start over.
 
+![turtleslam](</images/myrobotslammap.png>)

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### Created April 14 2022
-### K. Gunnarsson
+### K.G.
 
 ### Brings up Gazebo with my HSR environment.
 #   We'll use this to verify that we can navigate on
