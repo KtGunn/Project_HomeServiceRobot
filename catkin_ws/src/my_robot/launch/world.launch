@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <!--[ktg] Skipping setting robot location -->
+
+  <!-- Robot model -->
+  <include file="$(find my_robot)/launch/robot_description.launch" />
+
+  <!-- HSR test world -->
+  <arg name="world_file" default="$(find pick_objects)/worlds/slam_test.world"/>
+
+  <!-- Launch Gazebo World -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true" />
+    <arg name="world_name" value="$(arg world_file)"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'" />
+  
+  <!-- Spawn the robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-urdf -param robot_description -model my_robot" />
+  
+  <!-- Launch RViz -->
+  <node name="Rviz" pkg="rviz" type="rviz" respawn="false"
+	args="-d $(find my_robot)/rviz/move_base_config.rviz" />
+
+</launch>
