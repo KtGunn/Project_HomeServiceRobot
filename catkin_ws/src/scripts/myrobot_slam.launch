@@ -1,0 +1,25 @@
+#!/bin/sh
+
+### Created April 14 2022
+### K. Gunnarsson
+
+### Brings up Gazebo with my HSR environment and also the gmapping
+#   package. Adidtionally the teleop node (to drive the robot)
+#   the Rviz (to vizulaize the map) are brought up
+#   This uses 'my_robot' created in prior projects. That robot uses
+#   a hokuyp laser scanner with a wide swee much more powerful for
+#   mapping work than the asus 3d camera used on the turtlebot.
+#
+
+echo Launching gazebo with rviz
+xterm  -e "roslaunch my_robot world.launch " &
+sleep 5
+
+echo Launching slam gmapping node from my_robot launch file
+xterm  -e  "roslaunch my_robot myrobot_gmapping.launch" &
+sleep 5
+
+echo Launching turtlebot_teleop_key with remap to cmd_vel
+xterm  -e  "rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/cmd_vel" &
+
+echo All launches are completed.
