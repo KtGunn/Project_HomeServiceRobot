@@ -126,5 +126,5 @@ The two packages or nodes coordinate their operations using **semaphores** i.e. 
 
 The process repeats endlessly.
 
-![hs](</images/turtlenavigating.gif>)
+![hs](</images/homeservice.gif>)
 
