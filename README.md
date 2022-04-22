@@ -48,7 +48,7 @@ The first launch brings up Gazebo showing the environment and turtlebot. The sec
 
 ![turtleslam](</images/turtleslam.png>)
  
-The figure above shows the start of mapping using the turtle bot. The figure show the limited range the 3d sensor. The result was that mapping with this sensor failed. After painstakingly slow and drawn-out mapping operation this was the result (see below).
+The figure above shows the start of mapping using the turtle bot (see *.../src/scripts/test_slam.sh*). The figure show the limited range the 3d sensor. The result was that mapping with this sensor failed. After painstakingly slow and drawn-out mapping operation this was the result (see below).
 
 ![tmap](</images/turtlemap.png>)
 
@@ -70,5 +70,41 @@ Once a map is available the move_base package for navigating can be tested. Two 
 Before the SLAM difficulties with turtlebot had been sorted out, a map was created using the pgm_map_creator. This software creates the map directly from Gazebo environment by projecting walls (and other objects) down to the 2d plane. A very clean map is created. This map is used in the first script above. The second script uses the SLAM created map. The animation below demonstrates navigation on the SLAM created map.
 
 ![turtnav](</images/turtlenavigating.gif>)
+
+## Home Service Operation
+
+The work presented above builds up to the main task, the simulation of a home service robot. Two packages were created:
+
+- pick_object
+- add_markers
+
+The *pick_object* package moves the robot (turtlebot) between the pick up and drop off locations. It communicates with the move_base package. The *add_markers* package simulates the object by placing markers on the map.
+
+The operation starts when a marker appears at the pick up location. The robot then moves to the pick up location and the marker disappears. A short pause imitates the actual picking up of the object. Now the tug moves to the drop of location. Once at the drop off location the marker reappeaers indicating the object has been delivered. The process is repeated indefinitely.
+
+### Coordination
+
+The two packages or nodes coordinate their operations using **semaphores** i.e. parameters set on the rosmaster. In brief,
+
+> At start up robot (*pick_object*) will post **robot_ready=true** to master;
+> At start add_markers will post **target_set=false** and **robot_atTarget=false**;
+> A cycle now starts
+> Marker sees robot_ready==true and places the marker in the pick up location and
+> >sets the pickup location, **pikk_x** and pikk_y**,
+> >sets **target_set=true**;
+> >drops **robot_atTarget=false**;
+> Robot sees target is set, reads the location, and
+> >sets **robot_ready=false**
+> >sets **target_set=false**
+> and moves to the location;
+> Robot arrives at target location and sets **robot_atTarget=true**;
+> Robot goes into wait mode and sets **robot_ready=true**;
+> Marker sees robot is at target, deletes the marker and pauses;
+> Marker sees **robot_ready==true** and sets a new location as above;
+> Robot see **target_set==true** again and signals and moves as above;
+> Marker sees **robot_atTarge==true** waits for **robot_ready==true** again and places marker;
+> Marker pauses and announces object has been delivered.
+
+The process repeats endlessly.
 
 
