@@ -87,22 +87,39 @@ The operation starts when a marker appears at the pick up location. The robot th
 The two packages or nodes coordinate their operations using **semaphores** i.e. parameters set on the rosmaster. In brief,
 
 > At start up robot (*pick_object*) will post **robot_ready=true** to master;
+
 > At start add_markers will post **target_set=false** and **robot_atTarget=false**;
-> A cycle now starts
+
+> A cycle now starts:
+
 > Marker sees robot_ready==true and places the marker in the pick up location and
+
 > >sets the pickup location, **pikk_x** and pikk_y**,
+
 > >sets **target_set=true**;
+
 > >drops **robot_atTarget=false**;
+
 > Robot sees target is set, reads the location, and
+
 > >sets **robot_ready=false**
+
 > >sets **target_set=false**
+
 > and moves to the location;
+
 > Robot arrives at target location and sets **robot_atTarget=true**;
+
 > Robot goes into wait mode and sets **robot_ready=true**;
+
 > Marker sees robot is at target, deletes the marker and pauses;
+
 > Marker sees **robot_ready==true** and sets a new location as above;
+
 > Robot see **target_set==true** again and signals and moves as above;
+
 > Marker sees **robot_atTarge==true** waits for **robot_ready==true** again and places marker;
+
 > Marker pauses and announces object has been delivered.
 
 The process repeats endlessly.
