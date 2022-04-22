@@ -59,3 +59,16 @@ A robot created in a prior project was used to perform the mapping (see *.../src
 Although much better success was had with my own robot, thanks to the hokuyo lidar mounted on it, slam mapping is still a touchy operation. One must move slowly and seek to attain closures to build up a reliable and correct map. If a robot starts jumping around much during mapping, closure may not be attained and one must start over.
 
 ![turtleslam](</images/myrobotslammap.png>)
+
+## Navigation
+
+Once a map is available the move_base package for navigating can be tested. Two scripts were created for this purpose:
+
+- src/scripts/test_navigation.sh
+- src/scripts/test_navigation_gmapped.sh
+
+Before the SLAM difficulties with turtlebot had been sorted out, a map was created using the pgm_map_creator. This software creates the map directly from Gazebo environment by projecting walls (and other objects) down to the 2d plane. A very clean map is created. This map if used in the first script above. The second script uses the SLAM created map. The animation below demonstrates navigation with the turtlebot on the my_robot created map.
+
+![myrmap](</images/turtlenavigating.gif>)
+
+
