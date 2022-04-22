@@ -67,7 +67,7 @@ Once a map is available the move_base package for navigating can be tested. Two 
 - src/scripts/test_navigation.sh
 - src/scripts/test_navigation_gmapped.sh
 
-Before the SLAM difficulties with turtlebot had been sorted out, a map was created using the pgm_map_creator. This software creates the map directly from Gazebo environment by projecting walls (and other objects) down to the 2d plane. A very clean map is created. This map if used in the first script above. The second script uses the SLAM created map. The animation below demonstrates navigation with the turtlebot on the my_robot created map.
+Before the SLAM difficulties with turtlebot had been sorted out, a map was created using the pgm_map_creator. This software creates the map directly from Gazebo environment by projecting walls (and other objects) down to the 2d plane. A very clean map is created. This map is used in the first script above. The second script uses the SLAM created map. The animation below demonstrates navigation on the SLAM created map.
 
 ![turtnav](</images/turtlenavigating.gif>)
 
