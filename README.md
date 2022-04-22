@@ -94,7 +94,7 @@ The two packages or nodes coordinate their operations using **semaphores** i.e. 
 
 > Marker sees robot_ready==true and places the marker in the pick up location and
 
-> >sets the pickup location, **pikk_x** and pikk_y**,
+> >sets the pickup location, **pikk_x** and **pikk_y**,
 
 > >sets **target_set=true**;
 
@@ -108,11 +108,13 @@ The two packages or nodes coordinate their operations using **semaphores** i.e. 
 
 > and moves to the location;
 
-> Robot arrives at target location and sets **robot_atTarget=true**;
+> Robot arrives at target location and
 
-> Robot goes into wait mode and sets **robot_ready=true**;
+> > sets **robot_atTarget=true** then,
 
-> Marker sees robot is at target, deletes the marker and pauses;
+> > sets **robot_ready=true**;
+
+> Marker sees **robot_atTarget** and **robot_ready** are true, deletes the marker and pauses;
 
 > Marker sees **robot_ready==true** and sets a new location as above;
 
