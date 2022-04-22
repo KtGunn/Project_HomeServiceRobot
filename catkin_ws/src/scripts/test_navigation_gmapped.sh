@@ -5,11 +5,11 @@
 
 ### Brings up Gazebo with my HSR environment.
 #   We'll use this to verify that we can navigate on
-#   teh map we have created.
+#   the map we have created.
 #
 
-### 'slam_test.yaml' was created using pgm_map_creator
-export TURTLEBOT_GAZEBO_MAP_FILE="slam_test.yaml"
+### 'myrobot_slammapped' is the map created gmapping with 'my_robot'
+export TURTLEBOT_GAZEBO_MAP_FILE="myrobot_slammap.yaml"
 export ROBOT_INITIAL_POSE="-x -4.5 -y -3.5 -z 0.0 -R 0 -P 0 -Y 0"
 
 
